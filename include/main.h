@@ -26,6 +26,11 @@
 #define MAIN_H_
 
 #include <API.h>
+#include <string.h>
+#include "controllerLib.h"
+
+//Refresh rate (in Hz) for tasks
+unsigned char refreshRate = 20;
 
 // Allow usage of this file in C++ programs
 #ifdef __cplusplus
