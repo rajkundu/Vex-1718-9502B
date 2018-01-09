@@ -14,7 +14,7 @@
 #include "main.h"
 #include "controllerLib.h"
 
-//Refresh rate (in Hz) for 
+//Refresh rate (in Hz) for driver mode
 unsigned char refreshRate = 20;
 
 /*
