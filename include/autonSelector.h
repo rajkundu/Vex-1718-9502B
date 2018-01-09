@@ -11,7 +11,7 @@
 #include <string.h>
 
 //LCD Setup
-static unsigned char lcdPort = 2;
+#define lcdPort uart2
 static unsigned char lcdRefreshRate = 20;
 
 extern char routineNames[][17];
