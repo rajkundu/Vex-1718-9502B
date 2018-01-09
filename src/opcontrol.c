@@ -47,8 +47,6 @@ void operatorControl()
 	{
 		//Driver code here
 
-		motorSet(1, getJoy(main, leftY));
-
 		delay(1000.0 / refreshRate);
 	}
 }
