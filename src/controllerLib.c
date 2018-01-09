@@ -6,16 +6,8 @@
 #include <API.h>
 #include "controllerLib.h"
 
-/**
- * Wrapper function used for getting joystick channel value on controller
- *
- * @param controller either "main" (controller 1) or "partner" (controller 2)
- * as defined in the enum "controller" in corresponding .h file
- * @param channel any memeber of enum "joyChannel" in corresponding .h file i.e.
- * leftX, leftY, rightX, or rightY
- * @return returns value in [-127, 127] for joystick channel with a deadZone
- * (aka "dead band") active as defined in corresponding .h file
- */
+unsigned char deadZone = 16;
+
 signed char getJoy(controller controllerName, joyChannel channel)
 {
   //Retrieve joystick value
@@ -31,14 +23,6 @@ signed char getJoy(controller controllerName, joyChannel channel)
   }
 }
 
-/**
- * Wrapper function used for getting joystick button value on controller
- *
- * @param controller either "main" (controller 1) or "partner" (controller 2)
- * as defined in the enum "controller" in corresponding .h file
- * @param buttonName any member of enum "button" in corresponding .h file
- * @return returns true if button is pressed or false if button is not pressed
- */
 bool btnDown(controller controllerName, button buttonName)
 {
   int buttonGroupNum = 0;

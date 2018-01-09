@@ -12,6 +12,10 @@
  */
 
 #include "main.h"
+#include "controllerLib.h"
+
+//Refresh rate (in Hz) for 
+unsigned char refreshRate = 20;
 
 /*
  * Runs the user operator control code. This function will be started in its own
@@ -42,6 +46,8 @@ void operatorControl()
 	while(true)
 	{
 		//Driver code here
+
+		motorSet(1, getJoy(main, leftY));
 
 		delay(1000.0 / refreshRate);
 	}
