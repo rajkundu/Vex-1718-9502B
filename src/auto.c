@@ -1,4 +1,5 @@
-/** @file auto.c
+/**
+ * @file auto.c
  * @brief File for autonomous code
  *
  * This file should contain the user autonomous() function and any functions
@@ -12,6 +13,8 @@
  */
 
 #include "main.h"
+#include "../9502Lib/autonSelector.h"
+#include "../9502Lib/autonomousRoutines.h"
 
 /*
  * Runs the user autonomous code. This function will be started in its own task
@@ -32,4 +35,36 @@
  */
 void autonomous()
 {
+    //Replace/delete routineOne(), routineTwo(), etc. with routines
+    switch(routineNum)
+    {
+        case 0:
+        {
+            //Do nothing
+            break;
+        }
+        case 1:
+        {
+            routineOne();
+            break;
+        }
+        case 2:
+        {
+            routineTwo();
+            break;
+        }
+        case 3:
+        {
+            routineThree();
+            break;
+        }
+        case 4:
+        {
+            testProgram();
+        }
+        default:
+        {
+            break;
+        }
+    }
 }

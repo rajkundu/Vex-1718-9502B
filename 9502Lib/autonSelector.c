@@ -3,35 +3,18 @@
  * @brief contains code related to LCD autonomous selector
  */
 
-#include "autonSelector.h"
+#include "../9502Lib/autonSelector.h"
 
-/**
- * Array of char[] for lcd to show names of autonomous routines - one string
- * should correspond with each autonomous routine
- */
-char routineNames[][17] =
-{
-	"   Do Nothing   ",
-	"  Routine  One  ",
-	"  Routine  Two  ",
-	" Routine  Three ",
-	"  TEST PROGRAM  "
-};
 int numRoutines = sizeof(routineNames)/sizeof(routineNames[0]);
-
 char selectString[17] = "                ";
 short routineNum = 0;
 
 /**
- * Function that is run as a task (using PROS taskCreate) in the initialize
- * portion of the match, before autonomous; allows a user to choose the
- * autonomous routine to run for the match
- *
- * @param parameter is void but necessary for PROS multithreading - it accepts
- * the argument NULL when being created as a task using
- * taskCreate(autonomousSelector)
+ * Function that is run in the initialize portion of the match, before
+ * autonomous; allows a user to choose the autonomous routine to run for the
+ * match
  */
-void autonomousSelector(void *parameter)
+void aSel()
 {
 	// Turn on the LCD backlight, signifying that it needs input
 	lcdSetBacklight(lcdPort, true);
@@ -105,8 +88,5 @@ void autonomousSelector(void *parameter)
 
 	lcdSetText(lcdPort, 1, " ^  Selected  ^ ");
 	lcdSetBacklight(lcdPort, false);
-
-	//End this task
-	taskDelete(NULL);
 	return;
 }

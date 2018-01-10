@@ -7,7 +7,8 @@
                 "/Library/Developer/CommandLineTools/usr/lib/clang/9.0.0/include",
                 "/Library/Developer/CommandLineTools/usr/include",
                 "/usr/include",
-                "${workspaceRoot}/include"
+                "${workspaceRoot}/include",
+                "${workspaceRoot}/9502Lib"
             ],
             "defines": [],
             "intelliSenseMode": "clang-x64",
