@@ -13,7 +13,7 @@
  */
 
 #include "main.h"
-#include "9502Lib/aSel.h"
+#include "9502Lib/autonSelector.h"
 
 
 /*
@@ -58,5 +58,5 @@ void initialize()
     //Initialize motors & sensors here
 
     //Start autonomous selector on LCD
-	aSelect();
+	autonSelector();
 }

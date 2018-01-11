@@ -2,7 +2,7 @@
  * @file autonSelector.c
  * @brief contains code related to LCD autonomous selector
  */
-#include "9502Lib/aSel.h"
+#include "9502Lib/autonSelector.h"
 
 char selectString[17] = "                ";
 unsigned char routineNum = 0;
@@ -12,7 +12,7 @@ unsigned char routineNum = 0;
  * autonomous; allows a user to choose the autonomous routine to run for the
  * match
  */
-void aSelect()
+void autonSelector()
 {
 	// Turn on the LCD backlight, signifying that it needs input
 	lcdSetBacklight(lcdPort, true);

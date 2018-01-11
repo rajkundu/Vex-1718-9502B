@@ -13,7 +13,7 @@
  */
 
 #include "main.h"
-#include "9502Lib/aSel.h"
+#include "9502Lib/autonSelector.h"
 #include "9502Lib/autonomousRoutines.h"
 
 /*
