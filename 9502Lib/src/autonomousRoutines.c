@@ -3,18 +3,20 @@
  * @brief contains autonomous routine functions
  */
 
-static void routineOne()
+#include <API.h>
+
+void routineOne()
 {
 }
 
-static void routineTwo()
+void routineTwo()
 {
 }
 
-static void routineThree()
+void routineThree()
 {
 }
 
-static void testProgram()
+void testProgram()
 {
 }

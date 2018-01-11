@@ -23,7 +23,7 @@ extern int numRoutines;
 extern char selectString[17];
 extern unsigned char routineNum;
 
-extern void aSel();
+extern void autonomousSelector();
 
 //End header guard
 #endif
