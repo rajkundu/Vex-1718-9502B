@@ -14,6 +14,8 @@
 
 #include "main.h"
 #include "../9502Lib/autonSelector.h"
+#include "../9502Lib/autonSelector.c"
+
 
 /*
  * Runs pre-initialization code. This function will be started in kernel mode
@@ -28,6 +30,16 @@
 void initializeIO()
 {
 }
+
+char routineNames[][17] =
+{
+	"   Do Nothing   ",
+	"  Routine  One  ",
+	"  Routine  Two  ",
+	" Routine  Three ",
+	"  TEST PROGRAM  "
+};
+int numRoutines = sizeof(routineNames)/sizeof(routineNames[0]);
 
 /*
  * Runs user initialization code. This function will be started in its own task

@@ -12,24 +12,16 @@
 
 //LCD Setup
 #define lcdPort uart2
-static unsigned char lcdRefreshRate = 20;
+#define lcdRefreshRate 20
 
 /**
  * Array of char[] for lcd to show names of autonomous routines - one string
  * should correspond with each autonomous routine
  */
-static char routineNames[][17] =
-{
-	"   Do Nothing   ",
-	"  Routine  One  ",
-	"  Routine  Two  ",
-	" Routine  Three ",
-	"  TEST PROGRAM  "
-};
+extern char routineNames[][17];
 extern int numRoutines;
-
 extern char selectString[17];
-extern short routineNum;
+extern unsigned char routineNum;
 
 extern void aSel();
 

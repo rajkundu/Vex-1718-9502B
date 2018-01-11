@@ -1,6 +1,8 @@
 {
     "files.associations": {
         "autonselector.h": "c",
-        "main.h": "c"
+        "main.h": "c",
+        "string.h": "c",
+        "api.h": "c"
     }
 }

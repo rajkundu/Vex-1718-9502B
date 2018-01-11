@@ -2,12 +2,10 @@
  * @file autonSelector.c
  * @brief contains code related to LCD autonomous selector
  */
-
 #include "../9502Lib/autonSelector.h"
 
-int numRoutines = sizeof(routineNames)/sizeof(routineNames[0]);
 char selectString[17] = "                ";
-short routineNum = 0;
+unsigned char routineNum = 0;
 
 /**
  * Function that is run in the initialize portion of the match, before
@@ -43,9 +41,9 @@ void aSel()
 		}
 
 		//Display current autonomous routine name on the top line
-		lcdSetText(lcdPort, 0, routineNames[routineNum]);
+		lcdSetText(lcdPort, 1, routineNames[routineNum]);
 		//Display "Select" on the bottom line
-		lcdSetText(lcdPort, 1, selectString);
+		lcdSetText(lcdPort, 2, selectString);
 
     //If the center LCD button is pressed...
     if(lcdReadButtons(lcdPort) == 2)
@@ -86,7 +84,7 @@ void aSel()
 		delay(1000.0 / lcdRefreshRate);
 	}
 
-	lcdSetText(lcdPort, 1, " ^  Selected  ^ ");
+	lcdSetText(lcdPort, 2, " ^  Selected  ^ ");
 	lcdSetBacklight(lcdPort, false);
 	return;
 }
