@@ -9,7 +9,7 @@
 
 //Deadzone/deadband on joystick input; threshold at & below which input is
 //neglected and getJoy() function returns 0
-extern unsigned char deadZone;
+#define deadZone 16
 
 typedef enum {main = 1, partner = 2} controller;
 typedef enum {rightX = 1, rightY = 2, leftY = 3, leftX = 4} joyChannel;

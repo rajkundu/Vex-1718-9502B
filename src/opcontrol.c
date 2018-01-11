@@ -1,4 +1,5 @@
-/** @file opcontrol.c
+/**
+ * @file opcontrol.c
  * @brief File for operator control code
  *
  * This file should contain the user operatorControl() function and any
@@ -12,7 +13,7 @@
  */
 
 #include "main.h"
-#include "controllerLib.h"
+#include "9502Lib/controllerLib.h"
 
 //Refresh rate (in Hz) for driver mode
 unsigned char refreshRate = 20;

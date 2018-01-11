@@ -2,36 +2,17 @@
  * @file autonSelector.c
  * @brief contains code related to LCD autonomous selector
  */
-
-#include "autonSelector.h"
-
-/**
- * Array of char[] for lcd to show names of autonomous routines - one string
- * should correspond with each autonomous routine
- */
-char routineNames[][17] =
-{
-	"   Do Nothing   ",
-	"  Routine  One  ",
-	"  Routine  Two  ",
-	" Routine  Three ",
-	"  TEST PROGRAM  "
-};
-int numRoutines = sizeof(routineNames)/sizeof(routineNames[0]);
+#include "9502Lib/autonSelector.h"
 
 char selectString[17] = "                ";
-short routineNum = 0;
+unsigned char routineNum = 0;
 
 /**
- * Function that is run as a task (using PROS taskCreate) in the initialize
- * portion of the match, before autonomous; allows a user to choose the
- * autonomous routine to run for the match
- *
- * @param parameter is void but necessary for PROS multithreading - it accepts
- * the argument NULL when being created as a task using
- * taskCreate(autonomousSelector)
+ * Function that is run in the initialize portion of the match, before
+ * autonomous; allows a user to choose the autonomous routine to run for the
+ * match
  */
-void autonomousSelector(void *parameter)
+void autonSelector()
 {
 	// Turn on the LCD backlight, signifying that it needs input
 	lcdSetBacklight(lcdPort, true);
@@ -60,9 +41,9 @@ void autonomousSelector(void *parameter)
 		}
 
 		//Display current autonomous routine name on the top line
-		lcdSetText(lcdPort, 0, routineNames[routineNum]);
+		lcdSetText(lcdPort, 1, routineNames[routineNum]);
 		//Display "Select" on the bottom line
-		lcdSetText(lcdPort, 1, selectString);
+		lcdSetText(lcdPort, 2, selectString);
 
     //If the center LCD button is pressed...
     if(lcdReadButtons(lcdPort) == 2)
@@ -103,10 +84,7 @@ void autonomousSelector(void *parameter)
 		delay(1000.0 / lcdRefreshRate);
 	}
 
-	lcdSetText(lcdPort, 1, " ^  Selected  ^ ");
+	lcdSetText(lcdPort, 2, " ^  Selected  ^ ");
 	lcdSetBacklight(lcdPort, false);
-
-	//End this task
-	taskDelete(NULL);
 	return;
 }

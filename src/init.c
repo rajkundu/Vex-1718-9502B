@@ -1,4 +1,5 @@
-/** @file init.c
+/**
+ * @file init.c
  * @brief File for initialization code
  *
  * This file should contain the user initialize() function and any functions
@@ -12,7 +13,8 @@
  */
 
 #include "main.h"
-#include "autonSelector.h"
+#include "9502Lib/autonSelector.h"
+
 
 /*
  * Runs pre-initialization code. This function will be started in kernel mode
@@ -27,6 +29,16 @@
 void initializeIO()
 {
 }
+
+char routineNames[][17] =
+{
+	"   Do Nothing   ",
+	"  Routine  One  ",
+	"  Routine  Two  ",
+	" Routine  Three ",
+	"  TEST PROGRAM  "
+};
+int numRoutines = sizeof(routineNames)/sizeof(routineNames[0]);
 
 /*
  * Runs user initialization code. This function will be started in its own task
@@ -43,6 +55,8 @@ void initializeIO()
  */
 void initialize()
 {
-    taskCreate(autonomousSelector, TASK_DEFAULT_STACK_SIZE, NULL, TASK_PRIORITY_DEFAULT);
-    
+    //Initialize motors & sensors here
+
+    //Start autonomous selector on LCD
+	autonSelector();
 }

@@ -4,9 +4,7 @@
  */
 
 #include <API.h>
-#include "controllerLib.h"
-
-unsigned char deadZone = 16;
+#include "9502Lib/controllerLib.h"
 
 signed char getJoy(controller controllerName, joyChannel channel)
 {
