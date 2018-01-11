@@ -13,7 +13,7 @@
  */
 
 #include "main.h"
-#include "../9502Lib/include/controllerLib.h"
+#include "9502Lib/controllerLib.h"
 
 //Refresh rate (in Hz) for driver mode
 unsigned char refreshRate = 20;

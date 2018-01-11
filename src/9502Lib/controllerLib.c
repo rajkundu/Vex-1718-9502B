@@ -4,7 +4,7 @@
  */
 
 #include <API.h>
-#include "../include/controllerLib.h"
+#include "9502Lib/controllerLib.h"
 
 signed char getJoy(controller controllerName, joyChannel channel)
 {

@@ -1,5 +1,5 @@
 /**
- * @file subsystems.h
+ * @file subsystems.c
  * @brief contains subsystem code for individual parts of robot
  */
 

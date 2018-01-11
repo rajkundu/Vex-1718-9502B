@@ -13,8 +13,8 @@
  */
 
 #include "main.h"
-#include "../9502Lib/include/autonSelector.h"
-#include "../9502Lib/src/autonomousRoutines.c"
+#include "9502Lib/aSel.h"
+#include "9502Lib/autonomousRoutines.h"
 
 /*
  * Runs the user autonomous code. This function will be started in its own task

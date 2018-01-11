@@ -5,18 +5,18 @@
 
 #include <API.h>
 
-void routineOne()
+static void routineOne()
 {
 }
 
-void routineTwo()
+static void routineTwo()
 {
 }
 
-void routineThree()
+static void routineThree()
 {
 }
 
-void testProgram()
+static void testProgram()
 {
 }
