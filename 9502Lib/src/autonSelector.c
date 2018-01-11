@@ -2,7 +2,7 @@
  * @file autonSelector.c
  * @brief contains code related to LCD autonomous selector
  */
-#include "../9502Lib/include/autonSelector.h"
+#include "../include/autonSelector.h"
 
 char selectString[17] = "                ";
 unsigned char routineNum = 0;
