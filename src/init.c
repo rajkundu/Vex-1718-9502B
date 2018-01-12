@@ -15,7 +15,6 @@
 #include "main.h"
 #include "9502Lib/autonSelector.h"
 
-
 /*
  * Runs pre-initialization code. This function will be started in kernel mode
  * one time while the VEX Cortex is starting up. As the scheduler is still
@@ -29,16 +28,6 @@
 void initializeIO()
 {
 }
-
-char routineNames[][17] =
-{
-	"   Do Nothing   ",
-	"  Routine  One  ",
-	"  Routine  Two  ",
-	" Routine  Three ",
-	"  TEST PROGRAM  "
-};
-int numRoutines = sizeof(routineNames)/sizeof(routineNames[0]);
 
 /*
  * Runs user initialization code. This function will be started in its own task
@@ -55,8 +44,13 @@ int numRoutines = sizeof(routineNames)/sizeof(routineNames[0]);
  */
 void initialize()
 {
-    //Initialize motors & sensors here
+ 	//Initialize sensors here
+
+	//Set up LCD
+	lcdInit(lcdPort);
+	lcdClear(lcdPort);
 
     //Start autonomous selector on LCD
-	autonSelector();
+	taskCreate(autonSelector, \
+	TASK_DEFAULT_STACK_SIZE, NULL, TASK_PRIORITY_DEFAULT);
 }

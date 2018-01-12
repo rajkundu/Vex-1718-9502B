@@ -30,6 +30,7 @@
 
 #include <API.h>
 #include <string.h>
+#include "9502Lib/subsystems.h"
 
 // Allow usage of this file in C++ programs
 #ifdef __cplusplus

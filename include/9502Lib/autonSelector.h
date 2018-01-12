@@ -7,23 +7,27 @@
 #ifndef _AUTONSELECTOR_H
 #define _AUTONSELECTOR_H
 
-#include <API.h>
-#include <string.h>
-
-//LCD Setup
-#define lcdPort uart2
-#define lcdRefreshRate 20
+#include "main.h"
 
 /**
  * Array of char[] for lcd to show names of autonomous routines - one string
  * should correspond with each autonomous routine
  */
 extern char routineNames[][17];
-extern int numRoutines;
-extern char selectString[17];
+
+/**
+ * Variable that holds the number of the selected routine; used in a switch
+ * statement in autonomous() function in auto.c to determine which routine
+ * will be run
+ */
 extern unsigned char routineNum;
 
-extern void autonSelector();
+/**
+ * Function that is run in the initialize portion of the match, before
+ * autonomous; allows a user to choose the autonomous routine to run for the
+ * match
+ */
+extern void autonSelector(void *parameter);
 
 //End header guard
 #endif
