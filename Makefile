@@ -73,7 +73,7 @@ OUTELF:=$(BINDIR)/$(OUTNAME).elf
 .PHONY: all clean flash upload upload-legacy library print_compiling
 
 # By default, compile program
-all: $(OUTBIN)
+all: clean $(OUTBIN)
 
 # Remove all intermediate object files (remove the binary directory)
 clean:
