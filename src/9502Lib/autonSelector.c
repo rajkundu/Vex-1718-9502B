@@ -31,7 +31,7 @@ unsigned char routineNum;
  */
 void autonSelector(void *parameter)
 {
-	routineNum = 0;
+	unsigned char currentRoutineNum = 0;
 	int numRoutines = sizeof(routineNames)/sizeof(routineNames[0]);
 	char selectString[17] = "                ";
 
@@ -39,16 +39,16 @@ void autonSelector(void *parameter)
 	lcdSetBacklight(lcdPort, true);
 
 	// While the robot is not in autonomous mode or is disabled...
-	while(true)
+	while(!(isAutonomous()))
 	{
 		//If on the first, leftmost routine...
-		if(routineNum == 0)
+		if(currentRoutineNum == 0)
 		{
 			//Hide the left arrow
 			strcpy(selectString, "      Done     >");
 		}
 		//Otherwise, if on the last, rightmost routine...
-		else if(routineNum == (numRoutines - 1))
+		else if(currentRoutineNum == (numRoutines - 1))
 		{
 			//Hide the right arrow
 			strcpy(selectString, "<     Done      ");
@@ -61,7 +61,7 @@ void autonSelector(void *parameter)
 		}
 
 		//Display current autonomous routine name on the top line
-		lcdSetText(lcdPort, 1, routineNames[routineNum]);
+		lcdSetText(lcdPort, 1, routineNames[currentRoutineNum]);
 		//Display "Select" on the bottom line
 		lcdSetText(lcdPort, 2, selectString);
 
@@ -72,7 +72,7 @@ void autonSelector(void *parameter)
 			break;
     	}
 		//Otherwise, if (the left LCD button is pressed) and (the currently displayed routine is not the first)...
-		else if(lcdReadButtons(lcdPort) == 1 && (routineNum > 0))
+		else if(lcdReadButtons(lcdPort) == 1 && (currentRoutineNum > 0))
 		{
 			//Wait for button release
 			while(lcdReadButtons(lcdPort) == 1)
@@ -81,10 +81,10 @@ void autonSelector(void *parameter)
 				delay(1000.0 / lcdRefreshRate);
 			}
 			//Go to the routine to the left
-			routineNum--;
+			currentRoutineNum--;
 		}
 		//Otherwise, if (the right LCD button is pressed) and (the currently displayed routine is not the last)...
-		else if(lcdReadButtons(lcdPort) == 4 && (routineNum < (numRoutines - 1)))
+		else if(lcdReadButtons(lcdPort) == 4 && (currentRoutineNum < (numRoutines - 1)))
 		{
 			//Wait for button release
 			while(lcdReadButtons(lcdPort) == 4)
@@ -93,7 +93,7 @@ void autonSelector(void *parameter)
 				delay(1000.0 / lcdRefreshRate);
 			}
 			//Go to the routine to the right
-			routineNum++;
+			currentRoutineNum++;
 		}
 		//Else, if no LCD buttons are pressed...
 		else
@@ -104,6 +104,7 @@ void autonSelector(void *parameter)
 		delay(1000.0 / lcdRefreshRate);
 	}
 
+	routineNum = currentRoutineNum;
 	lcdSetText(lcdPort, 2, " ^  Selected  ^ ");
 	lcdSetBacklight(lcdPort, false);
 	taskDelete(NULL);
