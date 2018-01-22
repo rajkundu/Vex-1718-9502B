@@ -28,6 +28,7 @@ char routineNames[][17] =
 	" Routine  Three ",
 	"  TEST PROGRAM  "
 };
+char numRoutines = sizeof(routineNames)/sizeof(routineNames[0]);
 
 /*
  * Runs the user autonomous code. This function will be started in its own task

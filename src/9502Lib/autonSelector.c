@@ -11,11 +11,6 @@
  */
 unsigned char routineNum = 0;
 
-char getNumStrings(char *(array[][17]))
-{
-	return sizeof(*array)/sizeof((*array)[0]);
-}
-
 /**
  * Function that is run in the initialize portion of the match, before
  * autonomous; allows a user to choose the autonomous routine to run for the
@@ -23,7 +18,6 @@ char getNumStrings(char *(array[][17]))
  */
 void autonSelector(void *parameter)
 {
-	char numRoutines = getNumStrings(&routineNames);
 	char selectString[17] = "                ";
 
 	// Turn on the LCD backlight, signifying that it needs input

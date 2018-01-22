@@ -14,6 +14,7 @@
  * each string should correspond to an autonomous routine/method
  */
 extern char routineNames[][17];
+extern char numRoutines;
 
 /**
  * Variable that holds the number of the selected routine; used in a switch
