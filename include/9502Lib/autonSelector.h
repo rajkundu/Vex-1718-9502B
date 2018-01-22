@@ -10,8 +10,8 @@
 #include "main.h"
 
 /**
- * Array of char[] for lcd to show names of autonomous routines - one string
- * should correspond with each autonomous routine
+ * Array of strings (char[])s for lcd to show names of autonomous routines -
+ * each string should correspond to an autonomous routine/method
  */
 extern char routineNames[][17];
 

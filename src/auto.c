@@ -16,6 +16,19 @@
 #include "9502Lib/autonSelector.h"
 #include "9502Lib/autonomousRoutines.h"
 
+/**
+ * Array of strings (char[])s for lcd to show names of autonomous routines -
+ * each string should correspond to an autonomous routine/method
+ */
+char routineNames[][17] =
+{
+	"   Do Nothing   ",
+	"  Routine  One  ",
+	"  Routine  Two  ",
+	" Routine  Three ",
+	"  TEST PROGRAM  "
+};
+
 /*
  * Runs the user autonomous code. This function will be started in its own task
  * with the default priority and stack size whenever the robot is enabled via

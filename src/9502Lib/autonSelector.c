@@ -5,24 +5,16 @@
 #include "9502Lib/autonSelector.h"
 
 /**
- * Array of char[] for lcd to show names of autonomous routines - one string
- * should correspond with each autonomous routine
- */
-char routineNames[][17] =
-{
-	"   Do Nothing   ",
-	"  Routine  One  ",
-	"  Routine  Two  ",
-	" Routine  Three ",
-	"  TEST PROGRAM  "
-};
-
-/**
  * Variable that holds the number of the selected routine; used in a switch
  * statement in autonomous() function in auto.c to determine which routine
  * will be run
  */
 unsigned char routineNum = 0;
+
+char getNumStrings(char *(array[][17]))
+{
+	return sizeof(*array)/sizeof((*array)[0]);
+}
 
 /**
  * Function that is run in the initialize portion of the match, before
@@ -31,8 +23,7 @@ unsigned char routineNum = 0;
  */
 void autonSelector(void *parameter)
 {
-	//Initialize necessary variables for selector
-	int numRoutines = sizeof(routineNames)/sizeof(routineNames[0]);
+	char numRoutines = getNumStrings(&routineNames);
 	char selectString[17] = "                ";
 
 	// Turn on the LCD backlight, signifying that it needs input
