@@ -22,7 +22,7 @@ char routineNames[][17] =
  * statement in autonomous() function in auto.c to determine which routine
  * will be run
  */
-unsigned char routineNum = 0;
+unsigned char routineNum;
 
 /**
  * Function that is run in the initialize portion of the match, before
@@ -45,19 +45,19 @@ void autonSelector(void *parameter)
 		if(routineNum == 0)
 		{
 			//Hide the left arrow
-			strcpy(selectString, "     Select    >");
+			strcpy(selectString, "      Done     >");
 		}
 		//Otherwise, if on the last, rightmost routine...
 		else if(routineNum == (numRoutines - 1))
 		{
 			//Hide the right arrow
-			strcpy(selectString, "<    Select     ");
+			strcpy(selectString, "<     Done      ");
 		}
 		//Else, if on one of the middle routines...
 		else
 		{
 			//Show both left and right arrows
-			strcpy(selectString, "<    Select    >");
+			strcpy(selectString, "<     Done     >");
 		}
 
 		//Display current autonomous routine name on the top line

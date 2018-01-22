@@ -42,6 +42,10 @@ unsigned char refreshRate = 20;
 
 void operatorControl()
 {
+	lcdClear(lcdPort);
+    lcdSetText(lcdPort, 1, "  User Control  ");
+	lcdSetText(lcdPort, 2, "      Mode      ");
+
 	//Initialize variables for loop here
 
 	while(true)

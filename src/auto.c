@@ -35,6 +35,10 @@
  */
 void autonomous()
 {
+    lcdClear(lcdPort);
+    lcdSetText(lcdPort, 1, routineNames[routineNum]);
+    lcdSetText(lcdPort, 2, "^ Running auto ^");
+    
     //Replace/delete routineOne(), routineTwo(), etc. with routines
     switch(routineNum)
     {

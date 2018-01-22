@@ -6,6 +6,8 @@
 #include <API.h>
 #include "9502Lib/subsystems.h"
 
+TaskHandle autonSelectorTask = NULL;
+
 void displayInt(char lineNum, int intToDisplay)
 {
     char stringFromInt[17];
