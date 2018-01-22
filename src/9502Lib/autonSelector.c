@@ -71,7 +71,8 @@ void autonSelector(void *parameter)
 			//Break loop, selecting current program
 			break;
     	}
-		//Otherwise, if (the left LCD button is pressed) and (the currently displayed routine is not the first)...
+		//Otherwise, if (the left LCD button is pressed) and (the currently
+		//displayed routine is not the first)...
 		else if(lcdReadButtons(lcdPort) == 1 && (currentRoutineNum > 0))
 		{
 			//Wait for button release
@@ -83,8 +84,10 @@ void autonSelector(void *parameter)
 			//Go to the routine to the left
 			currentRoutineNum--;
 		}
-		//Otherwise, if (the right LCD button is pressed) and (the currently displayed routine is not the last)...
-		else if(lcdReadButtons(lcdPort) == 4 && (currentRoutineNum < (numRoutines - 1)))
+		//Otherwise, if (the right LCD button is pressed) and (the currently
+		//displayed routine is not the last)...
+		else if(lcdReadButtons(lcdPort) == 4 && (currentRoutineNum < \
+		(numRoutines - 1)))
 		{
 			//Wait for button release
 			while(lcdReadButtons(lcdPort) == 4)
