@@ -5,6 +5,19 @@
 #include "9502Lib/autonSelector.h"
 
 /**
+ * Array of strings (char[])s for lcd to show names of autonomous routines -
+ * each string should correspond to an autonomous routine/method
+ */
+char routineNames[][17] =
+{
+	"   Do Nothing   ",
+	"  Routine  One  ",
+	"  Routine  Two  ",
+	" Routine  Three ",
+	"  TEST PROGRAM  "
+};
+
+/**
  * Variable that holds the number of the selected routine; used in a switch
  * statement in autonomous() function in auto.c to determine which routine
  * will be run
@@ -18,15 +31,16 @@ unsigned char routineNum = 0;
  */
 void autonSelector(void *parameter)
 {
+	routineNum = 0;
+	int numRoutines = sizeof(routineNames)/sizeof(routineNames[0]);
 	char selectString[17] = "                ";
 
 	// Turn on the LCD backlight, signifying that it needs input
 	lcdSetBacklight(lcdPort, true);
 
 	// While the robot is not in autonomous mode or is disabled...
-	while(!(isAutonomous() || isEnabled()))
+	while(true)
 	{
-		// Decide which arrows to show: left, right or both?
 		//If on the first, leftmost routine...
 		if(routineNum == 0)
 		{
@@ -43,7 +57,7 @@ void autonSelector(void *parameter)
 		else
 		{
 			//Show both left and right arrows
-			strcpy(selectString, "     Select     ");
+			strcpy(selectString, "<    Select    >");
 		}
 
 		//Display current autonomous routine name on the top line
@@ -51,12 +65,12 @@ void autonSelector(void *parameter)
 		//Display "Select" on the bottom line
 		lcdSetText(lcdPort, 2, selectString);
 
-    //If the center LCD button is pressed...
-    if(lcdReadButtons(lcdPort) == 2)
-    {
-      //Break loop, selecting current program
-      break;
-    }
+		//If the center LCD button is pressed...
+		if(lcdReadButtons(lcdPort) == 2)
+		{
+			//Break loop, selecting current program
+			break;
+    	}
 		//Otherwise, if (the left LCD button is pressed) and (the currently displayed routine is not the first)...
 		else if(lcdReadButtons(lcdPort) == 1 && (routineNum > 0))
 		{
