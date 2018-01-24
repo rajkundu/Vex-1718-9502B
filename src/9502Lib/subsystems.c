@@ -3,13 +3,12 @@
  * @brief contains subsystem code for individual parts of robot
  */
 
-#include <API.h>
-#include "9502Lib/subsystems.h"
+#include "main.h"
 
 //////////////////////////////     LCD Screen     //////////////////////////////
-void setLCD(unsigned char lineNum, const char *text)
+void setLCD(unsigned char lineNum, char *text)
 {
-    lcdSetText(lcdPort, lineNum, text);
+    lcdSetText(lcdPort, lineNum, strcen(text));
     return;
 }
 ////////////////////----------------------------------------////////////////////
