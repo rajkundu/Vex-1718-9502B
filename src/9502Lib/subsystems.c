@@ -6,11 +6,25 @@
 #include <API.h>
 #include "9502Lib/subsystems.h"
 
-TaskHandle autonSelectorTask = NULL;
-
-void displayInt(char lineNum, int intToDisplay)
+//////////////////////////////     LCD Screen     //////////////////////////////
+void setLCD(unsigned char lineNum, const char *text)
 {
-    char stringFromInt[17];
-    sprintf(stringFromInt, "%d", intToDisplay);
-    lcdSetText(lcdPort, lineNum, stringFromInt);
+    lcdSetText(lcdPort, lineNum, text);
+    return;
 }
+////////////////////----------------------------------------////////////////////
+
+
+
+//////////////////////////////       Motors       //////////////////////////////
+////////////////////----------------------------------------////////////////////
+
+
+
+//////////////////////////////   Analog Sensors   //////////////////////////////
+////////////////////----------------------------------------////////////////////
+
+
+
+//////////////////////////////  Digital  Sensors  //////////////////////////////
+////////////////////----------------------------------------////////////////////
